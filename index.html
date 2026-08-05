@@ -54,6 +54,19 @@
 
   main{padding:28px 0 60px;}
 
+  /* Garantía — barra de cobertura LTV */
+  .ltv-headline{font-size:15.5px;font-weight:800;color:var(--ink);line-height:1.45;margin:0 0 14px;}
+  .ltv-headline strong{color:var(--teal-dark);}
+  .ltv-bar{position:relative;display:flex;height:48px;border-radius:12px;overflow:hidden;border:1px solid var(--border-strong);}
+  .ltv-loan{width:35%;background:var(--teal);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:14px;}
+  .ltv-buffer{width:65%;background:var(--teal-tint);display:flex;align-items:center;justify-content:center;color:var(--teal-dark);font-weight:800;font-size:14px;}
+  .ltv-legend{display:flex;margin-top:8px;font-size:11.5px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.03em;}
+  .ltv-legend span{text-align:center;padding:0 4px;}
+  .ltv-legend span:first-child{width:35%;}
+  .ltv-legend span:last-child{width:65%;}
+  .mora-foot{font-size:12px;color:var(--muted);line-height:1.55;font-weight:600;margin:14px 0 0;padding-top:12px;border-top:1px solid var(--border);}
+  @media(max-width:520px){.ltv-loan,.ltv-buffer{font-size:12px;} .ltv-legend{font-size:10.5px;}}
+
   /* Section title */
   .section-title{display:flex;align-items:center;gap:9px;font-size:17px;font-weight:800;color:var(--purple);margin:0 0 16px;}
   .section-title svg{width:20px;height:20px;color:var(--teal);flex-shrink:0;}
@@ -390,6 +403,72 @@
     <div class="card">
       <div class="card-head">
         <span class="card-head-label">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Respaldo de tu inversión
+        </span>
+        <svg class="card-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="card-body collapsed">
+
+        <p class="ltv-headline">Tu préstamo nunca supera el <strong>35% del valor real de la propiedad</strong>.</p>
+
+        <div class="ltv-bar">
+          <div class="ltv-loan">35%</div>
+          <div class="ltv-buffer">65%</div>
+        </div>
+        <div class="ltv-legend"><span>Tu préstamo</span><span>Margen de cobertura</span></div>
+
+        <p style="margin:16px 0 0;font-size:13.5px;line-height:1.6;color:var(--charcoal);font-weight:500;">Con Lendar se autorizan préstamos por hasta el 35% del valor real de la propiedad. Esto significa que tu inversión está aforada <strong>casi 3 veces</strong>.</p>
+
+
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <span class="card-head-label">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          ¿Y si el solicitante no paga?
+        </span>
+        <svg class="card-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="card-body collapsed">
+
+        <div class="note-box note-info" style="margin-bottom:18px;">Desde 2018, más de 2.000 familias compraron su casa con Lendar en todo el país. Nunca tuvimos que ejecutar una propiedad por mora.</div>
+
+        <div class="timeline">
+          <div class="tl-step">
+            <div class="tl-num">1</div>
+            <div class="tl-head"><span class="tl-title">Filtro previo</span><span class="tl-duration">Antes de la firma</span></div>
+            <p class="tl-desc">Se aprueban solo solicitantes con buen historial de pago y cuota acorde a sus ingresos. La propiedad, verificada y con apto hipotecario de la escribanía.</p>
+          </div>
+          <div class="tl-step">
+            <div class="tl-num">2</div>
+            <div class="tl-head"><span class="tl-title">Se atrasa una cuota</span><span class="tl-duration">Si vos lo pedís</span></div>
+            <p class="tl-desc">Vos le avisás a Lendar y nosotros nos ocupamos de todo: mensaje, seguimiento, llamada y aviso de gestión legal. Vos no tenés que perseguir a nadie.</p>
+          </div>
+          <div class="tl-step">
+            <div class="tl-num">3</div>
+            <div class="tl-head"><span class="tl-title">Corre el interés punitorio</span><span class="tl-duration">Desde el primer día de mora</span></div>
+            <p class="tl-desc">El interés pactado sube un 50%. Sobre 13,5% TNA, la mora rinde 20,25% TNA.</p>
+            <div style="margin-top:10px;">
+              <div class="fee-row"><span>Punitorio que cobrás vos</span><strong>100%</strong></div>
+              <div class="fee-row"><span>Costo de la gestión de mora para vos — la paga el deudor</span><strong>USD 0</strong></div>
+            </div>
+          </div>
+          <div class="tl-step">
+            <div class="tl-num">4</div>
+            <div class="tl-head"><span class="tl-title">Ejecución de la hipoteca</span><span class="tl-duration">Último recurso</span></div>
+            <p class="tl-desc">Si la mora no se resuelve, se ejecuta la hipoteca: la vía ya está firmada de antemano y los costos son a cargo del deudor. Lendar gestiona todo el proceso. Es el último recurso — el filtro previo y el margen del 65% hacen que casi nunca haga falta llegar acá.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head">
+        <span class="card-head-label">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="2" x2="12" y2="22"/><line x1="12" y1="3" x2="3" y2="5"/><line x1="12" y1="3" x2="21" y2="5"/><path d="M3 5v8a3 3 0 0 0 3 3h2"/><path d="M21 5v8a3 3 0 0 1-3 3h-2"/></svg>
           Marco Legal
         </span>
@@ -571,7 +650,7 @@
     {city:"Santa Fe", name:"Escribanía Culzoni & Zanetta", address:"San Martin 3262, Santa Fe", email:"escribaniaculzoni@gmail.com", offices:["Remax Santa Fe Capital","Remax Fortaleza (Esperanza)","Remax Conquista (Reconquista)"]},
     {city:"Rafaela", name:"Escribanía Eguiazu", address:"Moreno 240, Rafaela", email:"hipotecas@escribaniaeguiazu.com.ar", offices:["Remax Confianza (Rafaela)"]},
     {city:"Rosario I", name:"Escribanía Alegre", address:"Córdoba 1438 Piso 2, Of. 01, Rosario", email:"escribaniaalegre@gmail.com", offices:["Remax Forum","Remax Terra","Remax Select","Remax Colonial","Remax Tendencia"]},
-    {city:"Rosario II", name:"Verónica Ferreyra", address:"San Martín 647, Piso 5, Rosario", email:"escribanaferreyra@gmail.com", offices:["Remax Exclusivo","Remax Vip","Remax Point"]},
+    {city:"Rosario II", name:"Verónica Ferreyra", address:"San Martín 647, Piso 5, Rosario", email:"escribanaferreyra@gmail.com", offices:["Remax Exclusivo","Remax Vip"]},
     {city:"Paraná", name:"Escribanía Quinodoz", address:"San Martín 228, Paraná", email:"escribaniaquinodoz@gmail.com", offices:["Remax Por Más (Paraná)"]}
   ];
 
