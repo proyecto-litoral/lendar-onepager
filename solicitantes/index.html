@@ -38,62 +38,24 @@
     <h1>Pedí tu préstamo Lendar</h1>
     <p>Cuota fija en dólares, financiamiento de hasta el 35% del valor de la propiedad y preaprobación estimada en menos de 7 días hábiles.</p>
     <div class="hero-actions">
-      <a class="btn btn-primary" href="https://wa.me/5493424394129" target="_blank" rel="noopener">Consultá por WhatsApp</a>
-      <a class="btn btn-ghost" href="../contacto/">Contacto</a>
+      <a class="btn btn-primary" href="https://app.lendar.com.ar/register" target="_blank" rel="noopener">Solicitá tu préstamo</a>
+      <a class="btn btn-ghost" href="https://wa.me/5493424394129" target="_blank" rel="noopener">Consultá por WhatsApp</a>
     </div>
   </div>
 </section>
+<div class="stats"><div class="wrap stats-in"><div class="stat"><b>35%</b><span>es lo máximo que financiamos del valor de la propiedad</span></div><div class="stat"><b>USD</b><span>tu cuota es fija y en dólares</span></div><div class="stat"><b>7 días</b><span>hábiles de preaprobación estimada</span></div></div></div>
+<nav class="chips" aria-label="Secciones de la página"><div class="wrap chips-in"><a href="#simulador">Simulador</a><a href="#costos">Costos</a><a href="#requisitos">Qué necesito</a><a href="#paso-a-paso">Paso a paso</a><a href="#cancelar">Cancelar antes</a><a href="#firma">Dónde se firma</a></div></nav>
 
-<main class="wrap">
+<main class="page">
 
-  <div class="card">
-      <div class="card-head">
-        <span class="card-head-label">
-          <span style="height:8px;width:8px;border-radius:50%;background:var(--teal);display:inline-block;"></span>
-          ¿Qué necesito para pedir un préstamo Lendar?
-        </span>
-        <svg class="card-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+  <section class="sec" id="simulador">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-eyebrow">Cuánto sale</span>
+        <h2>Simulá tu préstamo</h2>
+        <p class="sec-lead">Movés las barras y ves tu cuota en dólares al instante.</p>
       </div>
-      <div class="card-body collapsed">
-        <div class="why-grid" id="reqGrid"></div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-head">
-        <span class="card-head-label">
-          <span style="height:8px;width:8px;border-radius:50%;background:var(--teal);display:inline-block;"></span>
-          EL PASO A PASO DE TU SOLICITUD
-        </span>
-        <svg class="card-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-      </div>
-      <div class="card-body collapsed">
-        <div class="timeline" id="timeline"></div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-head">
-        <span class="card-head-label">
-          <span style="height:8px;width:8px;border-radius:50%;background:var(--teal);display:inline-block;"></span>
-          ¿Por qué Lendar?
-        </span>
-        <svg class="card-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-      </div>
-      <div class="card-body collapsed">
-        <div class="why-grid" id="whyGrid"></div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-head">
-        <span class="card-head-label">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="16" y1="14" x2="16" y2="18"/><path d="M16 10h.01M12 10h.01M8 10h.01M12 14h.01M8 14h.01M12 18h.01M8 18h.01"/></svg>
-          Simulá tu préstamo
-        </span>
-        <svg class="card-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-      </div>
-      <div class="card-body collapsed">
+      <div class="sec-card">
         <div class="calc-grid">
           <div>
 
@@ -133,6 +95,7 @@
                 <span>Vivienda única y permanente</span>
               </label>
             </div>
+            <a class="btn btn-purple btn-block" href="https://app.lendar.com.ar/register" target="_blank" rel="noopener">Solicitá tu préstamo</a>
           </div>
         </div>
 
@@ -158,10 +121,71 @@
             </table>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
 
+  <section class="sec" id="costos">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-eyebrow">Cuánto cuesta</span>
+        <h2>Costos y honorarios</h2>
+        <p class="sec-lead">Lo que se paga además de las cuotas, explicado simple.</p>
+      </div>
+      <div class="sec-card">
+        <div class="fees-grid">
+          <div class="fee-panel">
+            <div>
+              <span class="fee-eyebrow">Comisión Lendar</span>
+              <div class="fee-row"><span>Comisión Lendar <small>(5% + IVA de <span id="feeBaseLabel"></span>)</small></span><strong id="feeSolLabel"></strong></div>
+            </div>
+            <div class="fee-foot">La comisión no se paga por separado: se suma al préstamo y se devuelve junto con la cuota mensual.</div>
+          </div>
+          <div class="fee-panel">
+            <div>
+              <span class="fee-eyebrow">Previsión de Costos de Escribanía</span>
+              <div class="escribania-block"><div class="escribania-title">Compra con financiamiento Lendar <small>(incluye compra-venta e hipoteca)</small></div><div class="escribania-value">3% a 10% del valor real del inmueble</div></div>
+              <div class="escribania-block"><div class="escribania-title">Hipoteca sola <small>(el inmueble ya es tuyo, no hay compra-venta)</small></div><div class="escribania-value">3% a 6,5% del monto del préstamo</div></div>
+            </div>
+            <div class="fee-foot" style="border-top:none;padding-top:0;">Valores estimados a modo orientativo — no son un presupuesto ni una cotización. El costo final puede variar y Lendar no garantiza esta cifra. Confirmalo siempre con la escribanía a cargo de tu operación.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="requisitos">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-eyebrow">Qué necesitás</span>
+        <h2>¿Qué necesito para pedir un préstamo Lendar?</h2>
+        <p class="sec-lead">Dos grupos de papeles: los tuyos y los de la propiedad.</p>
+      </div>
+      <div class="req-grid" id="reqGrid"></div>
+    </div>
+  </section>
+
+  <section class="sec" id="paso-a-paso">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-eyebrow">Cómo sigue</span>
+        <h2>El paso a paso de tu solicitud</h2>
+        <p class="sec-lead">Cinco pasos, con plazos estimados.</p>
+      </div>
+      <div class="sec-card"><div class="timeline" id="timeline"></div></div>
+    </div>
+  </section>
+
+  <section class="sec" id="cancelar">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-eyebrow">Si cambian tus planes</span>
+        <h2>Adelanto de cuotas y precancelación</h2>
+        <p class="sec-lead">Podés adelantar cuotas o cancelar todo antes de término. Mirá cuánto sería.</p>
+      </div>
+      <div class="sec-card">
         <div class="prepay-section">
-          <h3 class="prepay-title">Adelanto de cuotas y precancelación</h3>
-          <div class="prepay-grid">
+                    <div class="prepay-grid">
             <div class="prepay-box">
               <span class="prepay-tag">Adelanto parcial</span>
               <p>Podés adelantar cuotas cuando quieras. <strong>No tiene penalidad</strong>, pero tampoco genera descuento ni ahorro de intereses.</p>
@@ -185,55 +209,31 @@
         </div>
       </div>
     </div>
+  </section>
 
-    <div class="card">
-      <div class="card-head">
-        <span class="card-head-label">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="16" y1="14" x2="16" y2="18"/><path d="M16 10h.01M12 10h.01M8 10h.01M12 14h.01M8 14h.01M12 18h.01M8 18h.01"/></svg>
-          Costos y Honorarios
-        </span>
-        <svg class="card-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+  <section class="sec" id="firma">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-eyebrow">Dónde se firma</span>
+        <h2>Lugares de firma</h2>
+        <p class="sec-lead">Escribanías con las que trabajamos, según tu oficina RE/MAX.</p>
       </div>
-      <div class="card-body collapsed">
-        <div class="fees-grid">
-          <div class="fee-panel">
-            <div>
-              <span class="fee-eyebrow">Comisión Lendar</span>
-              <div class="fee-row"><span>Comisión Lendar <small>(5% + IVA de <span id="feeBaseLabel"></span>)</small></span><strong id="feeSolLabel"></strong></div>
-            </div>
-            <div class="fee-foot">La comisión no se paga por separado: se suma al préstamo y se devuelve junto con la cuota mensual.</div>
-          </div>
-          <div class="fee-panel">
-            <div>
-              <span class="fee-eyebrow">Previsión de Costos de Escribanía</span>
-              <div class="escribania-block"><div class="escribania-title">Compra con financiamiento Lendar <small>(incluye compra-venta e hipoteca)</small></div><div class="escribania-value">3% a 10% del valor real del inmueble</div></div>
-              <div class="escribania-block"><div class="escribania-title">Hipoteca sola <small>(el inmueble ya es tuyo, no hay compra-venta)</small></div><div class="escribania-value">3% a 6,5% del monto del préstamo</div></div>
-            </div>
-            <div class="fee-foot" style="border-top:none;padding-top:0;">Valores estimados a modo orientativo — no son un presupuesto ni una cotización. El costo final puede variar y Lendar no garantiza esta cifra. Confirmalo siempre con la escribanía a cargo de tu operación.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  <div class="card">
-    <div class="card-head">
-      <span class="card-head-label">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="2" ry="2"/><path d="M7 22V14h10v8"/><path d="M6 6h12"/><path d="M6 10h12"/></svg>
-        Lugares de firma
-      </span>
-      <svg class="card-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-    </div>
-    <div class="card-body collapsed">
+      <div class="sec-card">
       <div class="dir-grid" id="dirGrid"></div>
-    </div>
-  </div>
-  <section class="cta-band">
-    <h2>¿Querés avanzar con tu préstamo?</h2>
-    <p>Contanos qué propiedad querés comprar o qué monto necesitás y te orientamos.</p>
-    <div class="hero-actions">
-      <a class="btn btn-purple" href="https://wa.me/5493424394129" target="_blank" rel="noopener">Escribinos por WhatsApp</a>
-      <a class="btn btn-primary" href="../contacto/">Ver todos los contactos</a>
+      </div>
     </div>
   </section>
+
+  <div class="wrap">
+    <div class="cta-band">
+      <h2>¿Querés avanzar con tu préstamo?</h2>
+      <p>Registrate, simulá y completá tu solicitud online. Si preferís, escribinos y te orientamos.</p>
+      <div class="hero-actions">
+        <a class="btn btn-purple" href="https://app.lendar.com.ar/register" target="_blank" rel="noopener">Solicitá tu préstamo</a>
+        <a class="btn btn-primary" href="https://wa.me/5493424394129" target="_blank" rel="noopener">Escribinos por WhatsApp</a>
+      </div>
+    </div>
+  </div>
 
 </main>
 

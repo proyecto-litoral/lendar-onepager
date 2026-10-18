@@ -46,12 +46,24 @@
     dirGrid.appendChild(card);
   });
 
-  // ---- Accordion: every section starts collapsed, click the header to expand ----
-  document.querySelectorAll('.card-head').forEach(function(head){
-    head.addEventListener('click', function(){
-      head.classList.toggle('open');
-      var body = head.nextElementSibling;
-      if(body) body.classList.toggle('collapsed');
-    });
-  });
+  // ---- Índice fijo: resalta la sección que se está leyendo ----
+  var chips = Array.prototype.slice.call(document.querySelectorAll('.chips a'));
+  if(chips.length && 'IntersectionObserver' in window){
+    var byId = {};
+    chips.forEach(function(a){ byId[a.getAttribute('href').slice(1)] = a; });
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){
+          chips.forEach(function(a){ a.classList.remove('on'); });
+          var a = byId[en.target.id];
+          if(a){
+            a.classList.add('on');
+            var bar = a.parentNode;
+            bar.scrollTo({left: a.offsetLeft - 16, behavior:'smooth'});
+          }
+        }
+      });
+    }, {rootMargin:'-35% 0px -60% 0px'});
+    Object.keys(byId).forEach(function(id){ var el = document.getElementById(id); if(el) io.observe(el); });
+  }
 })();

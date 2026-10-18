@@ -12,29 +12,6 @@
     {title:"Pagá tus cuotas y listo", duration:"Todo el plazo", description:"Pagás una cuota fija en dólares al inversor cada mes, en efectivo o transferencia según lo acordado antes de la firma."}
   ];
 
-  var WHY_LENDAR = [
-    {
-      title:"Comprá Hoy",
-      text:"Como comprador, no necesitás juntar el 100% en efectivo para comprar hoy. Con el crédito Lendar —proceso 100% digital y aprobación en días— accedé a la casa que buscás con cuota fija, sin sorpresas cambiarias.",
-      icon:'<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>'
-    },
-    {
-      title:"Operación Blindada",
-      text:"Evitá que la operación se caiga por diferencia de cambio o discusión de gastos: se financian como parte del préstamo. Preaprobación estimada en menos de 7 días hábiles — la negociación no se enfría esperando al banco.",
-      icon:'<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>'
-    },
-    {
-      title:"Avanzá con Certeza",
-      text:"Con la aprobación financiera de Lendar en trámite, ya podés avanzar y comprometer la operación con el comprador. Avanzás la venta mientras se completa el proceso, sin esperar el \u201csí\u201d definitivo del banco para cerrar el trato.",
-      icon:'<circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/>'
-    },
-    {
-      title:"Más Compradores",
-      text:"Como gestor, marcá tus propiedades en venta como aptas para crédito Lendar. Ampliás el universo de compradores posibles —muchos llegan al precio pedido gracias al financiamiento— y ayudás a tu vendedor a cerrar más rápido, sin bajar el precio para apurar la operación.",
-      icon:'<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>'
-    }
-  ];
-
   var REQUISITOS = [
     {
       title:"Información de quien solicita el dinero",
@@ -52,11 +29,12 @@
       title:"Información del inmueble a hipotecar",
       icon:'<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>',
       items:[
-        "Copia de la escritura del inmueble",
+        "Escritura del inmueble",
         "Impuesto Inmobiliario y Catastro",
-        "Documentación necesaria para escriturar según jurisdicción (planos, reglamento de co-propiedad, estado parcelario, etc. si correspondiera)",
-        "Reserva de la compra-venta con: nombre, apellido, DNI y domicilio del comprador y del vendedor, y cláusula \u201cLendar\u201d",
-        "Si no hay reserva: ACM / ficha de la propiedad a hipotecar con detalles y fotos"
+        "Planos de mensura, verificación de estado parcelario",
+        "Reserva de la compra-venta conformada con cláusulas Lendar",
+        "<strong>Si la propiedad la vende RE/MAX:</strong> la ficha de publicación",
+        "<strong>Si la propiedad no la vende RE/MAX:</strong> ACM de la propiedad a hipotecar con detalles, fotos y firma del corredor inmobiliario"
       ]
     }
   ];
@@ -101,46 +79,22 @@
     '</div>';
   }).join('');
 
-  // ---- Por qué Lendar (expandable persuasive cards) ----
-  var whyGridEl = document.getElementById('whyGrid');
-  whyGridEl.innerHTML = WHY_LENDAR.map(function(item, idx){
-    return '<button type="button" class="why-card" id="whyCard'+idx+'">'+
-      '<div class="why-head">'+
-        '<span class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">'+item.icon+'</svg></span>'+
-        '<span class="why-title">'+item.title+'</span>'+
-        '<svg class="why-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>'+
-      '</div>'+
-      '<div class="why-body"><p class="why-text">'+item.text+'</p></div>'+
-    '</button>';
-  }).join('');
-  WHY_LENDAR.forEach(function(item, idx){
-    document.getElementById('whyCard'+idx).addEventListener('click', function(){
-      this.classList.toggle('open');
-    });
-  });
-
-  // ---- Qué necesito para pedir un Lendar (expandable requirement checklists) ----
+  // ---- Qué necesito (siempre visible) ----
   var reqGridEl = document.getElementById('reqGrid');
-  reqGridEl.innerHTML = REQUISITOS.map(function(item, idx){
+  reqGridEl.innerHTML = REQUISITOS.map(function(item){
     var itemsHtml = item.items.map(function(t){
       if(typeof t === 'string'){ return '<li>'+t+'</li>'; }
-      var subHtml = t.sub.map(function(s){ return '<li>'+s+'</li>'; }).join('');
-      return '<li>'+t.label+'<ul class="why-sublist">'+subHtml+'</ul></li>';
+      var subHtml = t.sub.map(function(x){ return '<li>'+x+'</li>'; }).join('');
+      return '<li>'+t.label+'<ul class="req-sub">'+subHtml+'</ul></li>';
     }).join('');
-    return '<button type="button" class="why-card" id="reqCard'+idx+'">'+
-      '<div class="why-head">'+
+    return '<div class="req-card">'+
+      '<div class="req-head">'+
         '<span class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">'+item.icon+'</svg></span>'+
-        '<span class="why-title">'+item.title+'</span>'+
-        '<svg class="why-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>'+
+        '<h3 class="req-title">'+item.title+'</h3>'+
       '</div>'+
-      '<div class="why-body"><ul class="why-list">'+itemsHtml+'</ul></div>'+
-    '</button>';
+      '<ul class="req-list">'+itemsHtml+'</ul>'+
+    '</div>';
   }).join('');
-  REQUISITOS.forEach(function(item, idx){
-    document.getElementById('reqCard'+idx).addEventListener('click', function(){
-      this.classList.toggle('open');
-    });
-  });
 
   // ---- Calculator ----
   var propSlider = document.getElementById('propSlider');
