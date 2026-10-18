@@ -21,32 +21,32 @@
 </head>
 <body>
 
-<header class="header">
-  <div class="wrap header-inner">
-    <a href="https://www.lendar.com.ar" target="_blank" rel="noopener" style="display:inline-block;line-height:0;">
-    <img class="logo-img" src="../assets/lendar-logo.jpg" alt="Lendar" /></a>
+<header class="site-nav">
+  <div class="wrap site-nav-inner">
+    <a href="../" style="display:inline-block;line-height:0;" aria-label="Lendar Litoral - Inicio"><img class="logo-img" src="../assets/lendar_logo_color.png" alt="Lendar" /></a>
+    <nav class="nav-links" aria-label="Principal">
+      <a href="../solicitantes/">Solicitantes</a>
+      <a href="../inversores/" class="active">Inversores</a>
+      <a class="nav-cta" href="../contacto/">Contacto</a>
+    </nav>
   </div>
 </header>
 
-<main class="wrap">
-  <nav class="role-tabs" aria-label="Elegí tu perfil">
-    <a class="role-tab" href="../solicitantes/">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-      Soy Solicitante
-    </a>
-    <a class="role-tab active" href="./" aria-current="page">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
-      Soy Inversor
-    </a>
-  </nav>
-
-  <div class="page-hero">
+<section class="hero">
+  <div class="wrap">
+    <span class="hero-eyebrow">Para inversores</span>
     <h1>Invertí en dólares con garantía hipotecaria</h1>
     <p>Cobrás una renta mensual fija en dólares, respaldada por hipoteca de primer grado sobre la propiedad.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="https://wa.me/5493424394129" target="_blank" rel="noopener">Quiero invertir: hablemos</a>
+      <a class="btn btn-ghost" href="../contacto/">Contacto</a>
+    </div>
   </div>
+</section>
 
+<main class="wrap">
 
-    <div class="card">
+  <div class="card">
       <div class="card-head">
         <span class="card-head-label">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
@@ -223,10 +223,44 @@
       <div class="dir-grid" id="dirGrid"></div>
     </div>
   </div>
+  <section class="cta-band">
+    <h2>¿Querés invertir con Lendar?</h2>
+    <p>Escribinos y te contamos cómo empezar.</p>
+    <div class="hero-actions">
+      <a class="btn btn-purple" href="https://wa.me/5493424394129" target="_blank" rel="noopener">Escribinos por WhatsApp</a>
+      <a class="btn btn-primary" href="../contacto/">Ver todos los contactos</a>
+    </div>
+  </section>
 
 </main>
 
-<footer>Toda la información de esta página —montos, tasas, comisiones, plazos y rangos de costos— es orientativa y no constituye una oferta vinculante, un compromiso contractual ni asesoramiento financiero o legal. Los montos y plazos finales quedan sujetos a evaluación crediticia y se establecen exclusivamente en el contrato firmado con Lendar. Tasas y comisiones pueden modificarse sin previo aviso. La renta mensual del inversor proviene del pago de las cuotas por parte del solicitante y está respaldada por hipoteca de primer grado sobre el inmueble. Lendar no es garante de ese pago: ante un incumplimiento, el cobro se canaliza por la mora y, de ser necesario, por la ejecución de la hipoteca, cuyos plazos y resultado dependen de la justicia y del valor de realización del inmueble. Las escribanías listadas son estudios profesionales independientes; Lendar no garantiza sus plazos, disponibilidad ni el resultado de su gestión.</footer>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img class="f-logo" src="../assets/lendar_logo_white.png" alt="Lendar" />
+        <p>Lendar Santa Fe y Entre Ríos. Mejores préstamos juntos.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navegá</h4>
+        <a href="../solicitantes/">Pedir un préstamo</a>
+        <a href="../inversores/">Invertir</a>
+        <a href="../contacto/">Contacto</a>
+        <a href="https://www.lendar.com.ar" target="_blank" rel="noopener">lendar.com.ar</a>
+      </div>
+      <div class="footer-col">
+        <h4>Seguinos</h4>
+        <a href="https://www.instagram.com/lendarsantafe_arg" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.linkedin.com/company/lendar" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://wa.me/5493424394129" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-remax"><img src="../assets/logo_remax_proveedor_exclusivo.png" alt="RE/MAX - Proveedor exclusivo" /></div>
+      </div>
+    </div>
+    <div class="legal"><p>Toda la información de esta página —montos, tasas, comisiones, plazos y rangos de costos— es orientativa y no constituye una oferta vinculante, un compromiso contractual ni asesoramiento financiero o legal. Los montos y plazos finales quedan sujetos a evaluación crediticia y se establecen exclusivamente en el contrato firmado con Lendar. Tasas y comisiones pueden modificarse sin previo aviso. La renta mensual del inversor proviene del pago de las cuotas por parte del solicitante y está respaldada por hipoteca de primer grado sobre el inmueble. Lendar no es garante de ese pago: ante un incumplimiento, el cobro se canaliza por la mora y, de ser necesario, por la ejecución de la hipoteca, cuyos plazos y resultado dependen de la justicia y del valor de realización del inmueble. Las escribanías listadas son estudios profesionales independientes; Lendar no garantiza sus plazos, disponibilidad ni el resultado de su gestión.</p></div>
+  </div>
+</footer>
 
 <script src="../assets/shared.js"></script>
 <script src="../assets/inversores.js"></script>

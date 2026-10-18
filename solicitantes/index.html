@@ -21,32 +21,32 @@
 </head>
 <body>
 
-<header class="header">
-  <div class="wrap header-inner">
-    <a href="https://www.lendar.com.ar" target="_blank" rel="noopener" style="display:inline-block;line-height:0;">
-    <img class="logo-img" src="../assets/lendar-logo.jpg" alt="Lendar" /></a>
+<header class="site-nav">
+  <div class="wrap site-nav-inner">
+    <a href="../" style="display:inline-block;line-height:0;" aria-label="Lendar Litoral - Inicio"><img class="logo-img" src="../assets/lendar_logo_color.png" alt="Lendar" /></a>
+    <nav class="nav-links" aria-label="Principal">
+      <a href="../solicitantes/" class="active">Solicitantes</a>
+      <a href="../inversores/">Inversores</a>
+      <a class="nav-cta" href="../contacto/">Contacto</a>
+    </nav>
   </div>
 </header>
 
-<main class="wrap">
-  <nav class="role-tabs" aria-label="Elegí tu perfil">
-    <a class="role-tab active" href="./" aria-current="page">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-      Soy Solicitante
-    </a>
-    <a class="role-tab" href="../inversores/">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
-      Soy Inversor
-    </a>
-  </nav>
-
-  <div class="page-hero">
+<section class="hero">
+  <div class="wrap">
+    <span class="hero-eyebrow">Para solicitantes</span>
     <h1>Pedí tu préstamo Lendar</h1>
     <p>Cuota fija en dólares, financiamiento de hasta el 35% del valor de la propiedad y preaprobación estimada en menos de 7 días hábiles.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="https://wa.me/5493424394129" target="_blank" rel="noopener">Consultá por WhatsApp</a>
+      <a class="btn btn-ghost" href="../contacto/">Contacto</a>
+    </div>
   </div>
+</section>
 
+<main class="wrap">
 
-    <div class="card">
+  <div class="card">
       <div class="card-head">
         <span class="card-head-label">
           <span style="height:8px;width:8px;border-radius:50%;background:var(--teal);display:inline-block;"></span>
@@ -226,10 +226,44 @@
       <div class="dir-grid" id="dirGrid"></div>
     </div>
   </div>
+  <section class="cta-band">
+    <h2>¿Querés avanzar con tu préstamo?</h2>
+    <p>Contanos qué propiedad querés comprar o qué monto necesitás y te orientamos.</p>
+    <div class="hero-actions">
+      <a class="btn btn-purple" href="https://wa.me/5493424394129" target="_blank" rel="noopener">Escribinos por WhatsApp</a>
+      <a class="btn btn-primary" href="../contacto/">Ver todos los contactos</a>
+    </div>
+  </section>
 
 </main>
 
-<footer>Toda la información de esta página —montos, tasas, comisiones, plazos y rangos de costos— es orientativa y no constituye una oferta vinculante, un compromiso contractual ni asesoramiento financiero o legal. Los montos y plazos finales quedan sujetos a evaluación crediticia y se establecen exclusivamente en el contrato firmado con Lendar. Tasas y comisiones pueden modificarse sin previo aviso. Las escribanías listadas son estudios profesionales independientes; Lendar no garantiza sus plazos, disponibilidad ni el resultado de su gestión.</footer>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img class="f-logo" src="../assets/lendar_logo_white.png" alt="Lendar" />
+        <p>Lendar Santa Fe y Entre Ríos. Mejores préstamos juntos.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navegá</h4>
+        <a href="../solicitantes/">Pedir un préstamo</a>
+        <a href="../inversores/">Invertir</a>
+        <a href="../contacto/">Contacto</a>
+        <a href="https://www.lendar.com.ar" target="_blank" rel="noopener">lendar.com.ar</a>
+      </div>
+      <div class="footer-col">
+        <h4>Seguinos</h4>
+        <a href="https://www.instagram.com/lendarsantafe_arg" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.linkedin.com/company/lendar" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://wa.me/5493424394129" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-remax"><img src="../assets/logo_remax_proveedor_exclusivo.png" alt="RE/MAX - Proveedor exclusivo" /></div>
+      </div>
+    </div>
+    <div class="legal"><p>Toda la información de esta página —montos, tasas, comisiones, plazos y rangos de costos— es orientativa y no constituye una oferta vinculante, un compromiso contractual ni asesoramiento financiero o legal. Los montos y plazos finales quedan sujetos a evaluación crediticia y se establecen exclusivamente en el contrato firmado con Lendar. Tasas y comisiones pueden modificarse sin previo aviso. Las escribanías listadas son estudios profesionales independientes; Lendar no garantiza sus plazos, disponibilidad ni el resultado de su gestión.</p></div>
+  </div>
+</footer>
 
 <script src="../assets/shared.js"></script>
 <script src="../assets/solicitantes.js"></script>
