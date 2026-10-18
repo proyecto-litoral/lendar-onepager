@@ -168,14 +168,17 @@
             </div>
             <div class="prepay-box">
               <span class="prepay-tag">Cancelación total</span>
-              <p>Podés cancelar todo el préstamo <strong>desde la cuota 2</strong>. Avisá con 30 días de anticipación por mail a <a href="mailto:prestamos@lendar.com.ar">prestamos@lendar.com.ar</a>. La penalidad es de <strong>5% + IVA sobre el capital que te quede por pagar</strong> (sin contar intereses).</p>
+              <p>Podés cancelar todo el préstamo <strong>desde la cuota 2</strong>. Avisá con 30 días de anticipación por mail a <a href="mailto:santafe@lendar.com.ar">santafe@lendar.com.ar</a>. La penalidad es de <strong>5% + IVA sobre el capital que te quede por pagar</strong> (sin contar intereses).</p>
             </div>
           </div>
 
           <div class="prepay-calc">
-            <div class="field-label"><span>¿Y si cancelo todo en la cuota…?</span><span class="val" id="cancelAtLabel"></span></div>
-            <div class="cancel-chips" id="cancelChips"></div>
-            <input type="range" id="cancelSlider" min="2" max="59" step="1" aria-label="Número de cuota en la que cancelás">
+            <div class="note-box note-info cancel-basis" id="cancelBasis"></div>
+            <div class="cancel-pick">
+              <span class="cancel-pick-label">Deslizá para elegir en qué cuota cancelarías</span>
+              <span class="cancel-big" id="cancelAtLabel"></span>
+            </div>
+            <input type="range" id="cancelSlider" class="cancel-slider" min="2" max="59" step="1" aria-label="Número de cuota en la que cancelás">
             <div class="range-scale"><span>Cuota 2</span><span id="cancelMaxScale"></span></div>
             <div class="prepay-result" id="cancelResult"></div>
           </div>

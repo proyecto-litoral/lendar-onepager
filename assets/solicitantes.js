@@ -216,16 +216,7 @@
 
   // ---- Precancelación: qué pasa si cancelo todo en la cuota N ----
   var CANCEL_PENALTY = 0.05 * 1.21;           // 5% + IVA sobre el capital adeudado
-  var CANCEL_QUICK = [10, 24, 52];
   var cancelSlider = document.getElementById('cancelSlider');
-  var cancelChips = document.getElementById('cancelChips');
-  CANCEL_QUICK.forEach(function(n){
-    var b = document.createElement('button');
-    b.type = 'button'; b.className = 'cancel-chip'; b.textContent = 'Cuota ' + n;
-    b.setAttribute('data-n', n);
-    b.addEventListener('click', function(){ state.cancelAt = n; renderCalc(); });
-    cancelChips.appendChild(b);
-  });
   cancelSlider.addEventListener('input', function(){ state.cancelAt = parseInt(cancelSlider.value, 10); renderCalc(); });
 
   function renderCancel(c){
@@ -236,11 +227,9 @@
     cancelSlider.min = 2; cancelSlider.max = maxN; cancelSlider.value = N;
     document.getElementById('cancelAtLabel').textContent = 'Cuota ' + N + ' de ' + n;
     document.getElementById('cancelMaxScale').textContent = 'Cuota ' + maxN;
-    Array.prototype.forEach.call(cancelChips.querySelectorAll('.cancel-chip'), function(b){
-      var v = parseInt(b.getAttribute('data-n'), 10);
-      b.style.display = v > maxN ? 'none' : '';
-      b.classList.toggle('active', v === N);
-    });
+    var termOpt = TERM_OPTIONS.filter(function(t){ return t.m === n; })[0];
+    document.getElementById('cancelBasis').innerHTML =
+      '<strong>Este cálculo es para el préstamo que simulaste arriba:</strong> ' + fmt(state.loanAmount) + ' USD solicitados + ' + fmt(c.feeSolUSD) + ' USD de comisión Lendar (5% + IVA) = <strong>' + fmt(c.financedPrincipal) + ' USD de préstamo total</strong>, a ' + (termOpt ? termOpt.years : n + ' meses') + ' (' + n + ' cuotas, ' + pctLabel(termRateFor(n)) + ' TNA). Si cambiás el monto o el plazo arriba, esto se actualiza.';
 
     var capital = c.schedule[N-1].balance;
     var penalty = capital * CANCEL_PENALTY;
@@ -253,7 +242,7 @@
       '<div class="fee-row"><span>Penalidad <small>(5% + IVA sobre ese capital)</small></span><strong>' + fmt(penalty) + ' USD</strong></div>' +
       '<div class="fee-row cancel-total"><span>Total para cancelar</span><strong>' + fmt(total) + ' USD</strong></div>' +
       '<p class="prepay-sum">Lo pagás junto con la cuota ' + N + ', que abonás como siempre. A cambio, dejás de pagar <strong>' + fmt(interestSaved) + ' USD</strong> de intereses de las cuotas ' + (N+1) + ' a ' + n + '.</p>' +
-      '<p class="prepay-foot">Cálculo orientativo, basado en el simulador de arriba. El monto final se confirma con Lendar al pedir la cancelación.</p>';
+      '<p class="prepay-foot">Estimación orientativa, calculada con los datos del simulador de arriba y sin incluir otros gastos que pudieran corresponder (por ejemplo, de escribanía para levantar la hipoteca). El monto exacto lo confirma Lendar cuando pedís la cancelación.</p>';
   }
 
   // ---- Amortization table toggle (collapsed by default, inside the calculator) ----
