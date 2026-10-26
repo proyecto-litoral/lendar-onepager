@@ -21,7 +21,7 @@
         {label:"Ingresos en PDF", sub:[
           "En relación de dependencia: últimos 3 recibos de sueldo",
           "Monotributista: facturación de los últimos 6 meses",
-          "Responsable inscripto: DDJJ de Ganancias"
+          "Responsable inscripto: facturación de los últimos 6 meses"
         ]}
       ]
     },
