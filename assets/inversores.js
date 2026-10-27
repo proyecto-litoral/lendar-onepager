@@ -66,7 +66,6 @@
   var invQuick = document.getElementById('invQuick');
   function setInvAmount(v){ invState.amount = v; renderInv(); }
   invAmountSlider.addEventListener('input', function(){ setInvAmount(parseInt(invAmountSlider.value, 10)); });
-  L.bindAmount(invAmountInput, {min:10000, max:300000, step:500, current:function(){ return invState.amount; }, commit:setInvAmount});
   L.quickChips(invQuick, [10000, 50000, 100000, 300000], setInvAmount);
 
   function renderInv(){

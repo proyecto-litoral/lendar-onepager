@@ -37,26 +37,8 @@
     if(e.target && e.target.type === 'range') paintRanges();
   });
 
-  function setAmount(input, n){
-    if(input && document.activeElement !== input) input.value = fmt(n);
-  }
-
-  // Campo de monto editable: formatea mientras se escribe y confirma al salir o con Enter.
-  function bindAmount(input, o){
-    input.addEventListener('focus', function(){ setTimeout(function(){ try{ input.select(); }catch(e){} }, 0); });
-    input.addEventListener('input', function(){
-      var d = input.value.replace(/\D/g, '');
-      input.value = d ? parseInt(d, 10).toLocaleString('es-AR') : '';
-    });
-    input.addEventListener('keydown', function(e){ if(e.key === 'Enter'){ e.preventDefault(); input.blur(); } });
-    input.addEventListener('blur', function(){
-      var v = parseInt(input.value.replace(/\D/g, ''), 10);
-      if(!v){ input.value = fmt(o.current()); return; }
-      v = Math.round(v / o.step) * o.step;
-      v = Math.max(o.min, Math.min(o.max, v));
-      o.commit(v);
-      input.value = fmt(o.current());
-    });
+  function setAmount(out, n){
+    if(out) out.value = fmt(n);
   }
 
   function quickChips(box, values, onPick){
@@ -107,7 +89,7 @@
   })();
 
   window.Lendar = { TERM_OPTIONS:TERM_OPTIONS, pctLabel:pctLabel, termRateFor:termRateFor, fmt:fmt,
-    paintRanges:paintRanges, setAmount:setAmount, bindAmount:bindAmount, quickChips:quickChips, markQuick:markQuick, pop:pop, syncSticky:syncSticky };
+    paintRanges:paintRanges, setAmount:setAmount, quickChips:quickChips, markQuick:markQuick, pop:pop, syncSticky:syncSticky };
 
   // ---- Directory ----
   var dirGrid = document.getElementById('dirGrid');

@@ -115,22 +115,22 @@
   var loanQuick = document.getElementById('loanQuick');
 
   // Mismas reglas de siempre: el préstamo no supera el 35% del valor de la propiedad.
+  // El valor de la propiedad sube de a 500 USD: el mínimo se redondea hacia arriba a ese paso.
+  function minProp(loan){ return Math.ceil(loan/0.35/500)*500; }
   function setProp(val){
-    var minAllowed = Math.ceil(state.loanAmount/0.35);
-    state.propertyValue = Math.max(minAllowed, val);
+    state.propertyValue = Math.max(minProp(state.loanAmount), val);
     renderCalc();
   }
   function setLoan(val){
     state.loanAmount = val;
-    state.propertyValue = Math.ceil(val/0.35);
+    state.propertyValue = minProp(val);
     renderCalc();
   }
 
   propSlider.addEventListener('input', function(){ setProp(parseInt(propSlider.value, 10)); });
   loanSlider.addEventListener('input', function(){ setLoan(parseInt(loanSlider.value, 10)); });
-  L.bindAmount(propInput, {min:28572, max:500000, step:100, current:function(){ return state.propertyValue; }, commit:setProp});
-  L.bindAmount(loanInput, {min:10000, max:150000, step:500, current:function(){ return state.loanAmount; }, commit:setLoan});
   L.quickChips(loanQuick, [25000, 50000, 100000, 150000], setLoan);
+
   vuypCheck.addEventListener('change', function(){ state.vuyp = vuypCheck.checked; renderCalc(); });
 
   function renderCalc(){
@@ -141,7 +141,7 @@
     L.setAmount(propInput, state.propertyValue);
     L.setAmount(loanInput, state.loanAmount);
     L.markQuick(loanQuick, state.loanAmount);
-    var minAllowed = Math.ceil(state.loanAmount/0.35);
+    var minAllowed = minProp(state.loanAmount);
     document.getElementById('minPropNote').classList.toggle('hidden', state.propertyValue > minAllowed);
 
     Array.prototype.forEach.call(termGrid.querySelectorAll('.term-btn'), function(btn){
