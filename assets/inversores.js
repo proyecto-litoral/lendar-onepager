@@ -62,14 +62,17 @@
     payoutGrid.appendChild(btn);
   });
 
-  invAmountSlider.addEventListener('input', function(){
-    invState.amount = parseInt(invAmountSlider.value, 10);
-    renderInv();
-  });
+  var invAmountInput = document.getElementById('invAmountInput');
+  var invQuick = document.getElementById('invQuick');
+  function setInvAmount(v){ invState.amount = v; renderInv(); }
+  invAmountSlider.addEventListener('input', function(){ setInvAmount(parseInt(invAmountSlider.value, 10)); });
+  L.bindAmount(invAmountInput, {min:10000, max:300000, step:500, current:function(){ return invState.amount; }, commit:setInvAmount});
+  L.quickChips(invQuick, [10000, 50000, 100000, 300000], setInvAmount);
 
   function renderInv(){
     invAmountSlider.value = invState.amount;
-    document.getElementById('invAmountLabel').innerHTML = fmt(invState.amount)+'<span class="unit-sm">USD</span>';
+    L.setAmount(invAmountInput, invState.amount);
+    L.markQuick(invQuick, invState.amount);
 
     Array.prototype.forEach.call(invTermGrid.querySelectorAll('.term-btn'), function(btn){
       btn.classList.toggle('active', parseInt(btn.getAttribute('data-term'),10) === invState.term);
@@ -93,6 +96,11 @@
 
     var c = invCalc();
     document.getElementById('invResultPayment').innerHTML = fmt(c.monthly)+'<span class="unit">USD / mes</span>';
+    var invTermOpt = TERM_OPTIONS.filter(function(t){ return t.m === invState.term; })[0];
+    document.getElementById('invFactTerm').textContent = invTermOpt ? invTermOpt.years : '';
+    document.getElementById('invFactRate').textContent = pctLabel(termRateFor(invState.term));
+    L.pop(document.getElementById('invResultPayment'));
+    L.syncSticky(document.getElementById('invResultPayment'));
 
     var tbody = document.getElementById('invTableBody');
     var rows = c.schedule.map(function(r){
@@ -103,6 +111,7 @@
         '<td class="c-balance">'+fmt(r.balance)+'</td></tr>';
     });
     tbody.innerHTML = rows.join('');
+    L.paintRanges();
   }
 
   document.getElementById('invTableToggleBtn').addEventListener('click', function(){

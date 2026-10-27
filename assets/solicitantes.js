@@ -110,18 +110,27 @@
     termGrid.appendChild(btn);
   });
 
-  propSlider.addEventListener('input', function(){
-    var val = parseInt(propSlider.value, 10);
+  var propInput = document.getElementById('propInput');
+  var loanInput = document.getElementById('loanInput');
+  var loanQuick = document.getElementById('loanQuick');
+
+  // Mismas reglas de siempre: el préstamo no supera el 35% del valor de la propiedad.
+  function setProp(val){
     var minAllowed = Math.ceil(state.loanAmount/0.35);
     state.propertyValue = Math.max(minAllowed, val);
     renderCalc();
-  });
-  loanSlider.addEventListener('input', function(){
-    var val = parseInt(loanSlider.value, 10);
+  }
+  function setLoan(val){
     state.loanAmount = val;
     state.propertyValue = Math.ceil(val/0.35);
     renderCalc();
-  });
+  }
+
+  propSlider.addEventListener('input', function(){ setProp(parseInt(propSlider.value, 10)); });
+  loanSlider.addEventListener('input', function(){ setLoan(parseInt(loanSlider.value, 10)); });
+  L.bindAmount(propInput, {min:28572, max:500000, step:100, current:function(){ return state.propertyValue; }, commit:setProp});
+  L.bindAmount(loanInput, {min:10000, max:150000, step:500, current:function(){ return state.loanAmount; }, commit:setLoan});
+  L.quickChips(loanQuick, [25000, 50000, 100000, 150000], setLoan);
   vuypCheck.addEventListener('change', function(){ state.vuyp = vuypCheck.checked; renderCalc(); });
 
   function renderCalc(){
@@ -129,8 +138,9 @@
     loanSlider.value = state.loanAmount;
     vuypCheck.checked = state.vuyp;
 
-    document.getElementById('propValLabel').innerHTML = fmt(state.propertyValue)+'<span class="unit-sm">USD</span>';
-    document.getElementById('loanValLabel').innerHTML = fmt(state.loanAmount)+'<span class="unit-sm">USD</span>';
+    L.setAmount(propInput, state.propertyValue);
+    L.setAmount(loanInput, state.loanAmount);
+    L.markQuick(loanQuick, state.loanAmount);
     var minAllowed = Math.ceil(state.loanAmount/0.35);
     document.getElementById('minPropNote').classList.toggle('hidden', state.propertyValue > minAllowed);
 
@@ -152,6 +162,18 @@
       resultSub.textContent = 'El préstamo tributa IVA sobre los intereses';
     }
 
+    // Resumen visual (solo muestra datos ya calculados)
+    var ltvPct = Math.min(100, c.ltv);
+    document.getElementById('ltvFill').style.width = ltvPct + '%';
+    document.getElementById('ltvLoanPct').textContent = Math.round(c.ltv) + '%';
+    document.getElementById('ltvOwnPct').textContent = Math.max(0, 100 - Math.round(c.ltv)) + '%';
+    var termOpt0 = TERM_OPTIONS.filter(function(t){ return t.m === state.term; })[0];
+    document.getElementById('factTerm').textContent = termOpt0 ? termOpt0.years : '';
+    document.getElementById('factRate').textContent = pctLabel(termRateFor(state.term));
+    document.getElementById('factPrincipal').textContent = fmt(c.financedPrincipal) + ' USD';
+    L.pop(resultPayment);
+    L.syncSticky(resultPayment);
+
     document.getElementById('feeBaseLabel').textContent = fmt(state.loanAmount)+' USD';
     document.getElementById('feeSolLabel').textContent = fmt(c.feeSolUSD)+' USD';
 
@@ -166,6 +188,7 @@
     });
     tbody.innerHTML = rows.join('');
     renderCancel(c);
+    L.paintRanges();
   }
 
   // ---- Precancelación: qué pasa si cancelo todo en la cuota N ----
